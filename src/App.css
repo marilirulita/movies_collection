@@ -114,3 +114,16 @@ button svg {
   margin: 2px;
   border-radius: 5px;
 }
+
+/* watched movies */
+.btnwatched {
+  background-color: rgb(115, 120, 139);
+  color: rgb(209, 222, 248);
+  padding: 5px 3px;
+}
+
+.btnNotWatched {
+  background-color: rgb(129, 108, 131);
+  color: rgb(248, 210, 248);
+  padding: 5px 3px;
+}

@@ -1,28 +1,19 @@
 import { v4 as uuidv4 } from 'uuid';
 import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { BsTrash } from 'react-icons/bs';
+import { addNewMovie, removeMovie, movieWatched } from '../redux/movies/movies';
 
 const Library = () => {
+  const library = useSelector((state) => state.reducerMovies);
+  const dispatch = useDispatch();
+
   const newMovie = {
     title: '',
     genre: '',
-    id: '',
   };
-  const movies = [
-    {
-      title: 'La vida es bella',
-      genre: 'Drama',
-      id: '1',
-    },
-    {
-      title: 'Como entrenar a tu dragon',
-      genre: 'Fantasy',
-      id: '2',
-    },
-  ];
 
   const [state, setState] = useState(newMovie);
-  const [library, setNewMovie] = useState(movies);
 
   const selectGenre = (select) => {
     setState({ title: state.title, genre: select.options[select.selectedIndex].value });
@@ -31,13 +22,19 @@ const Library = () => {
   const submitNewMovie = () => {
     if (state.title !== '' && state.genre !== '') {
       state.id = uuidv4();
-      setNewMovie([...library, state]);
+      state.watched = false;
+      dispatch(addNewMovie(state));
       setState({ title: '', genre: '' });
     }
   };
 
   const deleteMovie = (id) => {
-    setNewMovie((library) => library.filter((movie) => movie.id !== id));
+    dispatch(removeMovie(id));
+  };
+
+  const watchedMovie = (id, toggle) => {
+    const watched = !toggle;
+    dispatch(movieWatched(id, watched));
   };
 
   return (
@@ -80,15 +77,24 @@ const Library = () => {
               <h3>{movie.title}</h3>
               <span>{movie.genre}</span>
             </div>
-            <button
-              id={movie.id}
-              type="submit"
-              value="delete"
-              onClick={() => deleteMovie(movie.id)}
-              className="delete-button"
-            >
-              <BsTrash />
-            </button>
+            <div>
+              <button
+                className={(movie.watched && 'btnwatched') || (!movie.watched && 'btnNotWatched')}
+                type="submit"
+                onClick={() => watchedMovie(movie.id, movie.watched)}
+              >
+                {(movie.watched && 'Watched Movie') || (!movie.watched && 'Not Watched')}
+              </button>
+              <button
+                id={movie.id}
+                type="submit"
+                value="delete"
+                onClick={() => deleteMovie(movie.id)}
+                className="delete-button"
+              >
+                <BsTrash />
+              </button>
+            </div>
           </div>
         ))}
       </div>
