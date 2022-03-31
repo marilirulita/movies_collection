@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { movieWatched } from '../redux/movies/movies';
 
 const WatchedMovies = () => {
+  // select library and filter for watched atributes if true
   const library = useSelector((state) => state.reducerMovies)
     .filter((movie) => movie.watched === true);
 

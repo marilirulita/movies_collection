@@ -12,6 +12,7 @@ function App() {
   const library = useSelector((state) => state.reducerMovies);
   const dispatch = useDispatch();
 
+  // Default movies
   const movies = [
     {
       title: 'La vida es bella',
@@ -27,6 +28,7 @@ function App() {
     },
   ];
 
+  // this efect check for data in local sorage if any create a new item
   useEffect(() => {
     const storage = JSON.parse(localStorage.getItem('movies'));
     if (typeof storage === 'undefined') {
@@ -37,6 +39,7 @@ function App() {
     }
   }, []);
 
+  // check for changes in library data (store) and update local storage
   useEffect(() => {
     localStorage.setItem('movies', JSON.stringify(library));
   }, [library]);

@@ -20,6 +20,7 @@ const Watchlist = () => {
     setState({ title: state.title, genre: select.options[select.selectedIndex].value });
   };
 
+  // create a new movie to the wishlist store
   const submitNewWish = () => {
     if (state.title !== '' && state.genre !== '') {
       state.id = uuidv4();
@@ -33,10 +34,12 @@ const Watchlist = () => {
     dispatch(removeWish(id));
   };
 
+  // compare library store to wishlist for check coincidences
   const compareLibrary = () => {
     library.map((movie) => dispatch(onLibrary(movie.title)));
   };
 
+  // get data in wishes local storage item if any
   useEffect(() => {
     compareLibrary();
     const wishes = JSON.parse(localStorage.getItem('wishes'));
@@ -45,6 +48,7 @@ const Watchlist = () => {
     }
   }, []);
 
+  // track changes for update local storage wishes item
   useEffect(() => {
     localStorage.setItem('wishes', JSON.stringify(wishes));
   }, [wishes]);
@@ -89,7 +93,7 @@ const Watchlist = () => {
               <h3>{movie.title}</h3>
               <span>{movie.genre}</span>
             </div>
-            <div>
+            <div className="deleteWatch">
               <span
                 className={(movie.onlibrary && 'btnwatched') || (!movie.onlibrary && 'btnNotWatched')}
               >

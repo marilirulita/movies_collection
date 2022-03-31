@@ -19,6 +19,7 @@ const Library = () => {
     setState({ title: state.title, genre: select.options[select.selectedIndex].value });
   };
 
+  // update the object new movie with all data to library (store)
   const submitNewMovie = () => {
     if (state.title !== '' && state.genre !== '') {
       state.id = uuidv4();
@@ -32,6 +33,7 @@ const Library = () => {
     dispatch(removeMovie(id));
   };
 
+  // toggle watched atribute in movie element
   const watchedMovie = (id, toggle) => {
     const watched = !toggle;
     dispatch(movieWatched(id, watched));
@@ -77,7 +79,7 @@ const Library = () => {
               <h3>{movie.title}</h3>
               <span>{movie.genre}</span>
             </div>
-            <div>
+            <div className="deleteWatch">
               <button
                 className={(movie.watched && 'btnwatched') || (!movie.watched && 'btnNotWatched')}
                 type="submit"
