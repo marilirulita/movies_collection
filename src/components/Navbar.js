@@ -15,20 +15,18 @@ const Navbar = () => {
   };
 
   return (
-    <div>
-      <div>
-        <h1>Movies Collection</h1>
-      </div>
-      <div>
-        <button type="submit" aria-label="Hamburguer Menu" onClick={handleToggle}>
-          { navbarOpen ? <GiHamburgerMenu style={{ color: '#fff', width: '40px', height: '40px' }} /> : <ImCross style={{ color: '#7b7b7b', width: '40px', height: '40px' }} /> }
+    <div className="nav-container">
+      <div className="links-menu">
+        <button type="submit" aria-label="Hamburguer Menu" onClick={handleToggle} className="navbar-button">
+          { navbarOpen ? <ImCross /> : <GiHamburgerMenu /> }
         </button>
-        <div className={`menuNav ${navbarOpen ? ' showMenu' : ''}`}>
+        <div className={navbarOpen ? ' showMenu' : 'hideMenu'}>
           <Link to="/" onClick={closeMenu}>Library</Link>
           <Link to="/watchedMovies" onClick={closeMenu}>Watched Movies</Link>
           <Link to="/watchlist" onClick={closeMenu}>Watchlist</Link>
         </div>
       </div>
+      <h1>Movies Collection</h1>
     </div>
   );
 };

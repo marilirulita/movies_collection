@@ -8,8 +8,21 @@ const Library = () => {
     genre: '',
     id: '',
   };
+  const movies = [
+    {
+      title: 'La vida es bella',
+      genre: 'Drama',
+      id: '1',
+    },
+    {
+      title: 'Como entrenar a tu dragon',
+      genre: 'Fantasy',
+      id: '2',
+    },
+  ];
+
   const [state, setState] = useState(newMovie);
-  const [library, setNewMovie] = useState([]);
+  const [library, setNewMovie] = useState(movies);
 
   const selectGenre = (select) => {
     setState({ title: state.title, genre: select.options[select.selectedIndex].value });
@@ -28,9 +41,9 @@ const Library = () => {
   };
 
   return (
-    <div>
+    <div className="movies-container">
       <h2>Add New Movie</h2>
-      <div>
+      <div className="add-new-movie">
         <input
           className="inputs"
           type="text"
@@ -39,7 +52,6 @@ const Library = () => {
           onChange={(e) => setState({ title: e.target.value.toUpperCase(), genre: state.genre })}
         />
         <label htmlFor="genre">
-          Choose a genre:
           <select name="genre" id="genre" onClick={(e) => selectGenre(e.target)}>
             <option value="Action">Action</option>
             <option value="Comedy">Comedy</option>
@@ -61,11 +73,13 @@ const Library = () => {
           <span>Add Movie</span>
         </button>
       </div>
-      <div>
+      <div className="display-movies">
         {library.map((movie) => (
-          <div key={movie.id}>
-            <h3>{movie.title}</h3>
-            <span>{movie.genre}</span>
+          <div key={movie.id} className="movie-container">
+            <div>
+              <h3>{movie.title}</h3>
+              <span>{movie.genre}</span>
+            </div>
             <button
               id={movie.id}
               type="submit"

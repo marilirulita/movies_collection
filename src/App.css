@@ -1,7 +1,116 @@
-.menuNav {
+body {
+  margin: 0;
+  color: rgb(90 94 98);
+  background-color: rgb(252, 249, 249);
+}
+
+h1,
+h3 {
+  margin: 0;
+}
+
+h2 {
+  margin: 0;
+  padding: 5px;
+}
+
+.app-container {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+  width: fit-content;
+}
+
+/* Navbar section */
+.nav-container {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  width: -webkit-fill-available;
+}
+
+.nav-container h1 {
+  align-self: center;
+}
+
+.links-menu {
+  display: flex;
+  align-items: center;
+}
+
+.links-menu a {
+  color: #7b7b7b;
+  text-decoration: none;
+  padding: 3px;
+  border: 1px solid #7b7b7b;
+  margin: 0 3px;
+  border-radius: 5px;
+}
+
+.hideMenu {
   display: none;
 }
 
 .showMenu {
   display: flex;
+}
+
+button {
+  border: 1px solid #7b7b7b;
+  border-radius: 5px;
+  margin: 0 5px;
+}
+
+button svg {
+  color: #7b7b7b;
+  width: 20px;
+  height: 20px;
+}
+
+/* Add movies section */
+.movies-container {
+  background-color: #dfdada;
+  display: flex;
+  flex-direction: column;
+}
+
+.add-new-movie {
+  padding: 5px;
+}
+
+.add-new-movie input {
+  margin-right: 5px;
+  font-size: large;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+}
+
+.add-new-movie select {
+  font-size: large;
+  border-radius: 5px;
+  outline: none;
+}
+
+.add-new-movie button {
+  font-size: large;
+}
+
+/* Display movies section */
+.display-movies {
+  display: flex;
+  flex-direction: column;
+  margin: 10px 0;
+}
+
+.movie-container {
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid #7b7b7b;
+  margin: 2px;
+  border-radius: 5px;
 }
