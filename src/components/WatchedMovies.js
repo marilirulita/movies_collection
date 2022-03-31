@@ -2,7 +2,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { movieWatched } from '../redux/movies/movies';
 
 const WatchedMovies = () => {
-  const library = useSelector((state) => state.reducerMovies);
+  const library = useSelector((state) => state.reducerMovies)
+    .filter((movie) => movie.watched === true);
+
   const dispatch = useDispatch();
 
   const watchedMovie = (id, toggle) => {
@@ -12,7 +14,7 @@ const WatchedMovies = () => {
 
   return (
     <div className="movies-container">
-      <h2>This is Watched Movies section</h2>
+      <h2>Watched Movies</h2>
       <div className="display-movies">
         {library.map((movie) => (
           <div key={movie.id} className="movie-container">

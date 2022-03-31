@@ -40,6 +40,7 @@ function App() {
   useEffect(() => {
     localStorage.setItem('movies', JSON.stringify(library));
   }, [library]);
+
   return (
     <div className="app-container">
       <Navbar />
