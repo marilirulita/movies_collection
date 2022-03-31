@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
-import { GiHamburgerMenu } from "react-icons/gi";
+import { GiHamburgerMenu } from 'react-icons/gi';
+import { ImCross } from 'react-icons/im';
 
 const Navbar = () => (
   <div>
@@ -7,7 +8,10 @@ const Navbar = () => (
       <h1>Movies Collection</h1>
     </div>
     <div>
-      <button type='submit'><GiHamburgerMenu /></button>
+      <button type="submit" aria-label="Hamburguer Menu">
+        <GiHamburgerMenu />
+        <ImCross />
+      </button>
       <Link to="/">Library</Link>
       <Link to="/watchedMovies">Watched Movies</Link>
       <Link to="/watchlist">Watchlist</Link>
