@@ -10,23 +10,25 @@ const Watchlist = () => {
   const wishes = useSelector((store) => store.reducerWishes);
   const library = useSelector((store) => store.reducerMovies);
   const dispatch = useDispatch();
+
   const newMovie = {
     title: '',
     genre: '',
+    id: uuidv4(),
+    watched: false,
+    onlibrary: false,
   };
   const [state, setState] = useState(newMovie);
 
   const selectGenre = (select) => {
-    setState({ title: state.title, genre: select.options[select.selectedIndex].value });
+    setState({ ...state, genre: select.options[select.selectedIndex].value });
   };
 
   // create a new movie to the wishlist store
   const submitNewWish = () => {
     if (state.title !== '' && state.genre !== '') {
-      state.id = uuidv4();
-      state.onlibrary = false;
       dispatch(addNewwish(state));
-      setState({ title: '', genre: '' });
+      setState(newMovie);
     }
   };
 
@@ -36,9 +38,8 @@ const Watchlist = () => {
 
   // compare library store to wishlist for check coincidences
   const compareLibrary = () => {
-    console.log(library);
-    console.log(wishes);
-    library.map((movie) => dispatch(onLibrary(movie.title)));
+    library.map((movie) => (wishes.map((wish) => (movie.title === wish.title
+      ? dispatch(onLibrary(movie.title)) : wish))));
   };
 
   // get data in wishes local storage item if any
@@ -48,7 +49,7 @@ const Watchlist = () => {
     // if (typeof wishes !== 'undefined') {
     //   dispatch(getWishes(wishes));
     // }
-  }, []);
+  }, [library]);
 
   // track changes for update local storage wishes item
   // useEffect(() => {
@@ -64,7 +65,7 @@ const Watchlist = () => {
           type="text"
           placeholder="Add new movie"
           value={state.title}
-          onChange={(e) => setState({ title: e.target.value.toUpperCase(), genre: state.genre })}
+          onChange={(e) => setState({ ...state, title: e.target.value.toUpperCase() })}
         />
         <label htmlFor="genre">
           <select name="genre" id="genre" onClick={(e) => selectGenre(e.target)}>

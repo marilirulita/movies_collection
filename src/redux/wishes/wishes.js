@@ -45,7 +45,7 @@ const reducerWishes = (state = initialState, action) => {
       return state.filter((movie) => movie.id !== action.payload);
     case ON_LIBRARY:
       return state.map((movie) => (movie.title === action.payload
-        ? ({ ...movie, onLibrary: true }) : movie));
+        ? ({ ...movie, onlibrary: true }) : movie));
     default:
       return state;
   }

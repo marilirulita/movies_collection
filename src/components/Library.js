@@ -11,21 +11,22 @@ const Library = () => {
   const newMovie = {
     title: '',
     genre: '',
+    id: uuidv4(),
+    watched: false,
+    onlibrary: true,
   };
 
   const [state, setState] = useState(newMovie);
 
   const selectGenre = (select) => {
-    setState({ title: state.title, genre: select.options[select.selectedIndex].value });
+    setState({ ...state, genre: select.options[select.selectedIndex].value });
   };
 
   // update the object new movie with all data to library (store)
   const submitNewMovie = () => {
     if (state.title !== '' && state.genre !== '') {
-      state.id = uuidv4();
-      state.watched = false;
       dispatch(addNewMovie(state));
-      setState({ title: '', genre: '' });
+      setState(newMovie);
     }
   };
 
@@ -48,7 +49,9 @@ const Library = () => {
           type="text"
           placeholder="Add new movie"
           value={state.title}
-          onChange={(e) => setState({ title: e.target.value.toUpperCase(), genre: state.genre })}
+          onChange={(e) => {
+            setState({ ...state, title: e.target.value.toUpperCase() });
+          }}
         />
         <label htmlFor="genre">
           <select name="genre" id="genre" onClick={(e) => selectGenre(e.target)}>
