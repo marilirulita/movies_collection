@@ -1,4 +1,17 @@
-const initialState = [];
+const initialState = [
+  {
+    title: 'La vida es bella',
+    genre: 'Drama',
+    id: '1',
+    watched: false,
+  },
+  {
+    title: 'Como entrenar a tu dragon',
+    genre: 'Fantasy',
+    id: '2',
+    watched: false,
+  },
+];
 
 const GET_DATA = 'GET_DATA';
 const ADD_MOVIE = 'ADD_MOVIE';

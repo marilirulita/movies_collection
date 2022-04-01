@@ -1,4 +1,12 @@
-const initialState = [];
+const initialState = [
+  {
+    title: 'TITANIC',
+    genre: 'Drama',
+    id: '1',
+    watched: false,
+    onlibrary: true,
+  },
+];
 
 const GET_WISH = 'GET_WISH';
 const ADD_WISH = 'ADD_WISH';

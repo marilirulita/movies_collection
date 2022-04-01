@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { BsTrash } from 'react-icons/bs';
 import {
-  removeWish, addNewwish, getWishes, onLibrary,
+  removeWish, addNewwish, onLibrary,
 } from '../redux/wishes/wishes';
 
 const Watchlist = () => {
@@ -36,22 +36,24 @@ const Watchlist = () => {
 
   // compare library store to wishlist for check coincidences
   const compareLibrary = () => {
+    console.log(library);
+    console.log(wishes);
     library.map((movie) => dispatch(onLibrary(movie.title)));
   };
 
   // get data in wishes local storage item if any
   useEffect(() => {
     compareLibrary();
-    const wishes = JSON.parse(localStorage.getItem('wishes'));
-    if (typeof wishes !== 'undefined') {
-      dispatch(getWishes(wishes));
-    }
+    // const wishes = JSON.parse(localStorage.getItem('wishes'));
+    // if (typeof wishes !== 'undefined') {
+    //   dispatch(getWishes(wishes));
+    // }
   }, []);
 
   // track changes for update local storage wishes item
-  useEffect(() => {
-    localStorage.setItem('wishes', JSON.stringify(wishes));
-  }, [wishes]);
+  // useEffect(() => {
+  //   localStorage.setItem('wishes', JSON.stringify(wishes));
+  // }, [wishes]);
 
   return (
     <div className="movies-container">
