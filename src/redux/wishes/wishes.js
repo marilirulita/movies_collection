@@ -12,17 +12,12 @@ const movie = [
 
 const initialState = typeof local !== 'undefined' ? local : movie;
 
-const GET_WISH = 'GET_WISH';
 const ADD_WISH = 'ADD_WISH';
 const REMOVE_WISH = 'REMOVE_WISH';
 const ON_LIBRARY = 'ON_LIBRARY';
+const NOT_ON_LIBRARY = 'NOT_ON_LIBRARY';
 
 // actions
-export const getWishes = (payload) => ({
-  type: GET_WISH,
-  payload,
-});
-
 export const addNewwish = (payload) => ({
   type: ADD_WISH,
   payload,
@@ -38,11 +33,14 @@ export const onLibrary = (payload) => ({
   payload,
 });
 
+export const notOnLibrary = (payload) => ({
+  type: NOT_ON_LIBRARY,
+  payload,
+});
+
 // reducer
 const reducerWishes = (state = initialState, action) => {
   switch (action.type) {
-    case GET_WISH:
-      return [...action.payload];
     case ADD_WISH:
       return [...state, action.payload];
     case REMOVE_WISH:
@@ -50,6 +48,9 @@ const reducerWishes = (state = initialState, action) => {
     case ON_LIBRARY:
       return state.map((movie) => (movie.title === action.payload
         ? ({ ...movie, onlibrary: true }) : movie));
+    case NOT_ON_LIBRARY:
+      return state.map((movie) => (movie.title === action.payload
+        ? ({ ...movie, onlibrary: false }) : movie));
     default:
       return state;
   }

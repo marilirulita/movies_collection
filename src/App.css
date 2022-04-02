@@ -74,6 +74,11 @@ button svg {
   background-color: #dfdada;
   display: flex;
   flex-direction: column;
+  min-width: 350px;
+}
+
+.empty-list {
+  align-self: center;
 }
 
 .add-new-movie {

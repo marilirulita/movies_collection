@@ -5,7 +5,6 @@ const WatchedMovies = () => {
   // select library and filter for watched atributes if true
   const library = useSelector((state) => state.reducerMovies)
     .filter((movie) => movie.watched === true);
-
   const dispatch = useDispatch();
 
   const watchedMovie = (id, toggle) => {
@@ -17,7 +16,7 @@ const WatchedMovies = () => {
     <div className="movies-container">
       <h2>Watched Movies</h2>
       <div className="display-movies">
-        {library.map((movie) => (
+        {library.length === 0 ? (<h3 className="empty-list">Any movie watched yet</h3>) : library.map((movie) => (
           <div key={movie.id} className="movie-container">
             <div>
               <h3>{movie.title}</h3>

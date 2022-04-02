@@ -38,19 +38,14 @@ const Watchlist = () => {
 
   // compare library store to wishlist for check coincidences
   const compareLibrary = () => {
-    library.map((movie) => (wishes.map((wish) => (movie.title === wish.title
-      ? dispatch(onLibrary(movie.title)) : wish))));
+    wishes.map((wish) => (library.map((movie) => (movie.title === wish.title
+      ? dispatch(onLibrary(movie.title)) : movie))));
   };
 
   // get data in wishes local storage item if any
   useEffect(() => {
     compareLibrary();
   }, []);
-
-  // track changes for update local storage wishes item
-  // useEffect(() => {
-  //   localStorage.setItem('wishes', JSON.stringify(wishes));
-  // }, [wishes]);
 
   return (
     <div className="movies-container">
@@ -86,7 +81,7 @@ const Watchlist = () => {
         </button>
       </div>
       <div className="display-movies">
-        {wishes.map((movie) => (
+        {wishes.length === 0 ? (<h3 className="empty-list">Any movie in your library yet</h3>) : wishes.map((movie) => (
           <div key={movie.id} className="movie-container">
             <div>
               <h3>{movie.title}</h3>

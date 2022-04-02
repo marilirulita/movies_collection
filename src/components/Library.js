@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { BsTrash } from 'react-icons/bs';
 import { addNewMovie, removeMovie, movieWatched } from '../redux/movies/movies';
+import { notOnLibrary } from '../redux/wishes/wishes';
 
 const Library = () => {
   const library = useSelector((state) => state.reducerMovies);
@@ -30,8 +31,9 @@ const Library = () => {
     }
   };
 
-  const deleteMovie = (id) => {
+  const deleteMovie = (id, title) => {
     dispatch(removeMovie(id));
+    dispatch(notOnLibrary(title));
   };
 
   // toggle watched atribute in movie element
@@ -76,7 +78,7 @@ const Library = () => {
         </button>
       </div>
       <div className="display-movies">
-        {library.map((movie) => (
+        {library.length === 0 ? (<h3 className="empty-list">Any movie in your library yet</h3>) : library.map((movie) => (
           <div key={movie.id} className="movie-container">
             <div>
               <h3>{movie.title}</h3>
@@ -94,7 +96,7 @@ const Library = () => {
                 id={movie.id}
                 type="submit"
                 value="delete"
-                onClick={() => deleteMovie(movie.id)}
+                onClick={() => deleteMovie(movie.id, movie.title)}
                 className="delete-button"
               >
                 <BsTrash />
