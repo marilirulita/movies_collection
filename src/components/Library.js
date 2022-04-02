@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { BsTrash } from 'react-icons/bs';
 import { addNewMovie, removeMovie, movieWatched } from '../redux/movies/movies';
-import { notOnLibrary } from '../redux/wishes/wishes';
+import { notOnLibrary, onLibrary } from '../redux/wishes/wishes';
 
 const Library = () => {
   const library = useSelector((state) => state.reducerMovies);
@@ -26,6 +26,7 @@ const Library = () => {
   // update the object new movie with all data to library (store)
   const submitNewMovie = () => {
     if (state.title !== '' && state.genre !== '') {
+      dispatch(onLibrary(state.title));
       dispatch(addNewMovie(state));
       setState(newMovie);
     }

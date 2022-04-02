@@ -1,10 +1,8 @@
 import { v4 as uuidv4 } from 'uuid';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { BsTrash } from 'react-icons/bs';
-import {
-  removeWish, addNewwish, onLibrary,
-} from '../redux/wishes/wishes';
+import { removeWish, addNewwish } from '../redux/wishes/wishes';
 
 const Watchlist = () => {
   const wishes = useSelector((store) => store.reducerWishes);
@@ -27,7 +25,8 @@ const Watchlist = () => {
   // create a new movie to the wishlist store
   const submitNewWish = () => {
     if (state.title !== '' && state.genre !== '') {
-      dispatch(addNewwish(state));
+      const answer = library.filter((movie) => (movie.title === state.title));
+      answer.length > 0 ? dispatch(addNewwish(answer[0])) : dispatch(addNewwish(state));
       setState(newMovie);
     }
   };
@@ -35,17 +34,6 @@ const Watchlist = () => {
   const deleteWish = (id) => {
     dispatch(removeWish(id));
   };
-
-  // compare library store to wishlist for check coincidences
-  const compareLibrary = () => {
-    wishes.map((wish) => (library.map((movie) => (movie.title === wish.title
-      ? dispatch(onLibrary(movie.title)) : movie))));
-  };
-
-  // get data in wishes local storage item if any
-  useEffect(() => {
-    compareLibrary();
-  }, []);
 
   return (
     <div className="movies-container">

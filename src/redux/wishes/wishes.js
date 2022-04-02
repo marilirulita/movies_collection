@@ -1,23 +1,27 @@
-const local = JSON.parse(localStorage.getItem('wishes'));
-
 const movie = [
   {
     title: 'TITANIC',
     genre: 'Drama',
     id: '1',
     watched: false,
-    onlibrary: true,
+    onlibrary: false,
   },
 ];
 
-const initialState = typeof local !== 'undefined' ? local : movie;
+const initialState = [];
 
+const GET_WISHES = 'GET_WISHES';
 const ADD_WISH = 'ADD_WISH';
 const REMOVE_WISH = 'REMOVE_WISH';
 const ON_LIBRARY = 'ON_LIBRARY';
 const NOT_ON_LIBRARY = 'NOT_ON_LIBRARY';
 
 // actions
+const getWishes = (payload) => ({
+  type: GET_WISHES,
+  payload,
+});
+
 export const addNewwish = (payload) => ({
   type: ADD_WISH,
   payload,
@@ -38,9 +42,17 @@ export const notOnLibrary = (payload) => ({
   payload,
 });
 
+export const getStorageWishes = () => async (dispatch) => {
+  const answer = await JSON.parse(localStorage.getItem('wishes'));
+  const data = answer !== null ? answer : movie;
+  dispatch(getWishes(data));
+}
+
 // reducer
 const reducerWishes = (state = initialState, action) => {
   switch (action.type) {
+    case GET_WISHES:
+      return [...action.payload];
     case ADD_WISH:
       return [...state, action.payload];
     case REMOVE_WISH:
