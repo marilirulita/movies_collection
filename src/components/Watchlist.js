@@ -45,11 +45,7 @@ const Watchlist = () => {
   // get data in wishes local storage item if any
   useEffect(() => {
     compareLibrary();
-    // const wishes = JSON.parse(localStorage.getItem('wishes'));
-    // if (typeof wishes !== 'undefined') {
-    //   dispatch(getWishes(wishes));
-    // }
-  }, [library]);
+  }, []);
 
   // track changes for update local storage wishes item
   // useEffect(() => {

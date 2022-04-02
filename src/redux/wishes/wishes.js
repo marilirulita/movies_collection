@@ -1,4 +1,6 @@
-const initialState = [
+const local = JSON.parse(localStorage.getItem('wishes'));
+
+const movie = [
   {
     title: 'TITANIC',
     genre: 'Drama',
@@ -7,6 +9,8 @@ const initialState = [
     onlibrary: true,
   },
 ];
+
+const initialState = typeof local !== 'undefined' ? local : movie;
 
 const GET_WISH = 'GET_WISH';
 const ADD_WISH = 'ADD_WISH';

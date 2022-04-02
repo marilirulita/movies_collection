@@ -1,4 +1,5 @@
-const initialState = [
+const local = JSON.parse(localStorage.getItem('movies'));
+const movies = [
   {
     title: 'La vida es bella',
     genre: 'Drama',
@@ -13,16 +14,13 @@ const initialState = [
   },
 ];
 
-const GET_DATA = 'GET_DATA';
+const initialState = typeof local !== 'undefined' ? local : movies;
+
 const ADD_MOVIE = 'ADD_MOVIE';
 const REMOVE_MOVIE = 'REMOVE_MOVIE';
 const WATCHED_MOVIE = 'WATCHED_MOVIE';
 
 // actions
-export const getData = (payload) => ({
-  type: GET_DATA,
-  payload,
-});
 
 export const addNewMovie = (payload) => ({
   type: ADD_MOVIE,
@@ -43,8 +41,6 @@ export const movieWatched = (id, payload) => ({
 // reducer
 const reducerMovies = (state = initialState, action) => {
   switch (action.type) {
-    case GET_DATA:
-      return [...action.payload];
     case ADD_MOVIE:
       return [...state, action.payload];
     case REMOVE_MOVIE:

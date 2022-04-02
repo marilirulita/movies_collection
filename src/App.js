@@ -1,7 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
-// import { useEffect } from 'react';
-// import { useDispatch, useSelector } from 'react-redux';
-// import { getData } from './redux/movies/movies';
+import { useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import Navbar from './components/Navbar';
 import Library from './components/Library';
 import WatchedMovies from './components/WatchedMovies';
@@ -9,24 +8,14 @@ import Watchlist from './components/Watchlist';
 import './App.css';
 
 function App() {
-  // const library = useSelector((state) => state.reducerMovies);
-  // const dispatch = useDispatch();
-
-  // this efect check for data in local sorage if any create a new item
-  // useEffect(() => {
-  //   const storage = JSON.parse(localStorage.getItem('movies'));
-  //   if (typeof storage === 'undefined') {
-  //     localStorage.setItem('movies', JSON.stringify(movies));
-  //     dispatch(getData(movies));
-  //   } else {
-  //     dispatch(getData(storage));
-  //   }
-  // }, []);
+  const library = useSelector((state) => state.reducerMovies);
+  const wishes = useSelector((state) => state.reducerWishes);
 
   // check for changes in library data (store) and update local storage
-  // useEffect(() => {
-  //   localStorage.setItem('movies', JSON.stringify(library));
-  // }, [library]);
+  useEffect(() => {
+    localStorage.setItem('movies', JSON.stringify(library));
+    localStorage.setItem('wishes', JSON.stringify(wishes));
+  }, [library, wishes]);
 
   return (
     <div className="app-container">
