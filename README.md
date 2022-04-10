@@ -13,7 +13,7 @@
 
 - You can see the live demo here:
 
-[Live Demo](https://quirky-hamilton-adc127.netlify.app/)
+[Live Demo](https://rad-chebakia-51c4c4.netlify.app/)
 
 ## Getting Started
 
