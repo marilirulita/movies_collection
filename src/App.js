@@ -18,7 +18,7 @@ function App() {
   }, [library, wishes]);
 
   return (
-    <div className="app-container">
+    <div className="panel-bg">
       <Navbar />
       <Routes>
         <Route path="/" element={<Library />} />

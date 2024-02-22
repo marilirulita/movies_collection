@@ -14,17 +14,17 @@ h2 {
   padding: 5px;
 }
 
-.app-container {
+/* .app-container {
   background-color: white;
   display: flex;
   flex-direction: column;
   align-items: center;
   margin: 0 auto;
   width: fit-content;
-}
+} */
 
 /* Navbar section */
-.nav-container {
+/* .nav-container {
   display: flex;
   flex-direction: column;
   padding: 10px;
@@ -34,8 +34,8 @@ h2 {
 .nav-container h1 {
   align-self: center;
 }
-
-.links-menu {
+ */
+/* .links-menu {
   display: flex;
   align-items: center;
 }
@@ -48,7 +48,7 @@ h2 {
   margin: 0 3px;
   border-radius: 5px;
 }
-
+ */
 .hideMenu {
   display: none;
 }
@@ -154,4 +154,67 @@ button svg {
     flex-direction: column;
     align-items: stretch;
   }
+}
+
+/* new style code */
+
+.panel-bg {
+  border-radius: 4px;
+  box-shadow: 2.5rem 4.062rem 50px 0 rgba(0, 0, 0, 0.2), 0 0 60px 0 rgba(0, 0, 0, 0.05);
+  background-color: #fafafa;
+}
+
+.navbar {
+  padding: 1rem;
+  background-color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.links {
+  display: flex;
+  align-items: center;
+}
+
+.Bookstore-CMS1 {
+  margin: 0 2.938rem 0 0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.875rem;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #0290ff;
+}
+
+.BOOKS,
+.CATEGORIES {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.813rem;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: 1.9px;
+  color: #121212;
+  text-decoration: none;
+}
+
+/* check this one */
+.CATEGORIES {
+  opacity: 0.5;
+}
+
+.Oval {
+  padding: 0.875rem;
+  border: solid 1px #e8e8e8;
+  border-radius: 50%;
+}
+
+.Mask {
+  width: 1.063rem;
+  height: 1.063rem;
+  color: #0290ff;
 }
