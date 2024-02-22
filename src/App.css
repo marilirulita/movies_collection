@@ -1,4 +1,4 @@
-body {
+/* body {
   margin: 0;
   color: rgb(90 94 98);
   background-color: rgb(252, 249, 249);
@@ -13,7 +13,7 @@ h2 {
   margin: 0;
   padding: 5px;
 }
-
+ */
 /* .app-container {
   background-color: white;
   display: flex;
@@ -49,7 +49,7 @@ h2 {
   border-radius: 5px;
 }
  */
-.hideMenu {
+/* .hideMenu {
   display: none;
 }
 
@@ -67,10 +67,10 @@ button svg {
   color: #7b7b7b;
   width: 20px;
   height: 20px;
-}
+} */
 
 /* Add movies section */
-.movies-container {
+/* .movies-container {
   background-color: #dfdada;
   display: flex;
   flex-direction: column;
@@ -91,9 +91,9 @@ button svg {
   border-radius: 5px;
   border: none;
   outline: none;
-}
+} */
 
-.add-new-movie select {
+/* .add-new-movie select {
   font-size: large;
   border-radius: 5px;
   outline: none;
@@ -104,12 +104,12 @@ button svg {
 }
 
 /* Display movies section */
-.display-movies {
+/* .display-movies {
   display: flex;
   flex-direction: column;
   margin: 10px 0;
 }
-
+ 
 .movie-container {
   padding: 5px;
   display: flex;
@@ -118,10 +118,10 @@ button svg {
   border: 1px solid #7b7b7b;
   margin: 2px;
   border-radius: 5px;
-}
+} */
 
 /* watched movies */
-.btnwatched {
+/* .btnwatched {
   background-color: rgb(115, 120, 139);
   color: rgb(209, 222, 248);
   padding: 5px 3px;
@@ -137,8 +137,8 @@ button svg {
   display: flex;
   justify-content: space-between;
 }
-
-@media (max-width: 480px) {
+ */
+/* @media (max-width: 480px) {
   .add-new-movie {
     display: flex;
     flex-direction: column;
@@ -155,7 +155,7 @@ button svg {
     align-items: stretch;
   }
 }
-
+ */
 /* new style code */
 
 .panel-bg {
@@ -172,13 +172,18 @@ button svg {
   align-items: center;
 }
 
+.navbar-left {
+  display: flex;
+  align-items: end;
+}
+
 .links {
   display: flex;
-  align-items: center;
+  margin: 0 10px 0 10px;
 }
 
 .Bookstore-CMS1 {
-  margin: 0 2.938rem 0 0;
+  margin: 0;
   font-family: 'Montserrat', sans-serif;
   font-size: 1.875rem;
   font-weight: bold;
@@ -189,32 +194,32 @@ button svg {
   color: #0290ff;
 }
 
-.BOOKS,
-.CATEGORIES {
+.BOOKS{
   font-family: 'Montserrat', sans-serif;
-  font-size: 0.813rem;
+  font-size: 1rem;
   font-weight: normal;
   font-stretch: normal;
   font-style: normal;
   line-height: normal;
-  letter-spacing: 1.9px;
+  letter-spacing: 1.5px;
   color: #121212;
   text-decoration: none;
+  padding: 1px;
+  margin: 2px;
 }
 
-/* check this one */
-.CATEGORIES {
+.BOOKS:focus {
   opacity: 0.5;
 }
 
 .Oval {
-  padding: 0.875rem;
+  padding: 1rem;
   border: solid 1px #e8e8e8;
   border-radius: 50%;
 }
 
 .Mask {
-  width: 1.063rem;
-  height: 1.063rem;
+  width: 1rem;
+  height: 1rem;
   color: #0290ff;
 }
