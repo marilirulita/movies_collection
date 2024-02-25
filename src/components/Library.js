@@ -87,7 +87,7 @@ const Library = () => {
             <div className='book-info'>
               <span className="Category">{movie.genre}</span>
               <span className="Title">{movie.title}</span>
-              <span className="Author">Categoria 'arreglar'</span>
+              <span className="Author">Author 'arreglar'</span>
               <div className="comments-section">
                 <span className="Comments">Comments</span>
                 <span className="Comments">Remove</span>

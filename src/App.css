@@ -72,9 +72,7 @@ button svg {
 /* Add movies section */
 /*
 
-.empty-list {
-  align-self: center;
-}
+
 
 .add-new-movie {
   padding: 5px;
@@ -222,7 +220,8 @@ button svg {
 
 /* books displayed section */
 .books-display {
-  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
 }
 
 .Lesson-Panel {
@@ -508,4 +507,11 @@ body {
 button {
   padding: 0;
   margin: 0;
+}
+
+.empty-list {
+  align-self: center;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2rem;
+  color: #6e6e6e;
 }
