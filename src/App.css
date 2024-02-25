@@ -317,9 +317,9 @@ button svg {
   padding: 0.62rem;
 }
 
-.circle-oval {
-  width: 4.25rem;
-  height: 4.25rem;
+.btnNotWatched {
+  width: 5.5rem;
+  height: 5.5rem;
   border: 5px solid transparent;
   border-radius: 50%;
   background-image: linear-gradient(white, white), radial-gradient(circle at top left, #307bbe, #379cf6);
@@ -328,34 +328,35 @@ button svg {
   border-image-slice: 1;
 }
 
-.percent-spans {
-  display: flex;
-  flex-direction: column;
+.btnwatched {
+  width: 5.5rem;
+  height: 5.5rem;
+  border: 0;
+  border-radius: 50%;
+  background: linear-gradient(90deg, #307bbe, #379cf6);
+
 }
 
-.-Percent-Complete {
-  margin: 0.063rem 0.688rem;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 2rem;
-  font-weight: normal;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: normal;
-  letter-spacing: normal;
+.btnwatched span {
+  color: white;
+  
+}
+
+.btnNotWatched span {
   color: #121212;
+  opacity: 0.6;
 }
 
 .Completed {
-  margin: 0.438rem 0.75rem;
-  opacity: 0.5;
+
   font-family: 'Montserrat', sans-serif;
-  font-size: 0.875rem;
-  font-weight: normal;
+  font-size: 1rem;
+  font-weight: bold;
   font-stretch: normal;
   font-style: normal;
   line-height: normal;
   letter-spacing: normal;
-  color: #121212;
+
 }
 
 
@@ -492,4 +493,10 @@ body {
 .Bookstore-CMS {
   padding: 3rem;
   background-color: #f5f6fa;
+}
+
+/* other styles */
+button {
+  padding: 0;
+  margin: 0;
 }

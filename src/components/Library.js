@@ -96,20 +96,14 @@ const Library = () => {
             </div>
             <div className="status-section">
               <div className="percent-section">
-                <div className="circle">
-                  <div className="circle-oval" />
-                </div>
-                <div className="percent-spans">
-                  <span className="-Percent-Complete">45%</span>
-                  <span className="Completed">Completed</span>
-                  {/* este boton lo tengo que meter en el span de arriba?? */}
+              <div className="circle">
                   <button
                     className={(movie.watched && 'btnwatched') || (!movie.watched && 'btnNotWatched')}
                     type="submit"
                     onClick={() => watchedMovie(movie.id, movie.watched)}
-                  >{(movie.watched && 'Watched Movie') || (!movie.watched && 'Not Watched')}
+                  ><span className="Completed">{(movie.watched && 'Watched Movie') || (!movie.watched && 'Not Watched')}</span>
                   </button>
-                </div>
+                  </div>
               </div>
 
               <div className="chapter-section">
