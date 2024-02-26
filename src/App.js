@@ -18,6 +18,7 @@ function App() {
   }, [library, wishes]);
 
   return (
+    <div className="Bookstore-CMS">
     <div className="panel-bg">
       <Navbar />
       <Routes>
@@ -25,6 +26,7 @@ function App() {
         <Route path="watchedMovies" element={<WatchedMovies />} />
         <Route path="watchlist" element={<Watchlist />} />
       </Routes>
+    </div>
     </div>
   );
 }

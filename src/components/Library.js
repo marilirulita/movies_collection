@@ -19,7 +19,9 @@ const Library = () => {
   const [state, setState] = useState(newMovie);
 
   const selectGenre = (select) => {
-    setState({ ...state, genre: select.options[select.selectedIndex].value });
+    setState({ ...state, genre: select.value });
+    /* check this old code ?? */
+    /* setState({ ...state, genre: select.options[select.selectedIndex].value }); */
   };
 
   // update the object new movie with all data to library (store)

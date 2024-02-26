@@ -18,7 +18,8 @@ const Watchlist = () => {
   const [state, setState] = useState(newMovie);
 
   const selectGenre = (select) => {
-    setState({ ...state, genre: select.options[select.selectedIndex].value });
+    setState({ ...state, genre: select.value });
+   /*  setState({ ...state, genre: select.options[select.selectedIndex].value }); */
   };
 
   // create a new movie to the wishlist store
