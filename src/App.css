@@ -154,7 +154,7 @@ button {
 .status-section {
   display: flex;
   align-items: center;
-  flex: 1.5;
+  justify-content: space-evenly;
 }
 
 .percent-section {
@@ -304,23 +304,15 @@ label {
     margin: 0;
     padding: 0;
   }
+
+  .Lesson-Panel {
+    flex-direction: column;
+    align-items: normal;
+  }
 }
 
+@media (max-width: 460px) {
 
-
-
- /*  .add-new-movie {
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .add-new-movie * {
-    width: 100%;
-    margin: 2px 0;
-  }
-
-  .movie-container {
-    flex-direction: column;
-    align-items: stretch;
-  } */
+/* code for navbar? */
+  
+}
