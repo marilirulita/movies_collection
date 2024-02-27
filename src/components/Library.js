@@ -59,7 +59,7 @@ const Library = () => {
             }}
           />
           {/* ver si agrego otro input para el author */}
-          <label htmlFor="genre">
+          <label htmlFor="genre" className="inputs">
             <select
               name="genre"
               id="genre"

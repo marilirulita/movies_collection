@@ -51,7 +51,7 @@ const Watchlist = () => {
               setState({ ...state, title: e.target.value.toUpperCase() })
             }
           />
-          <label htmlFor="genre">
+          <label htmlFor="genre" className="inputs">
             <select
               name="genre"
               id="genre"
