@@ -9,7 +9,8 @@ button {
 }
 
 .Bookstore-CMS {
-  padding: 0 2rem 2rem 2rem; 
+  display: flex;
+  justify-content: center;
   background-color: #f5f6fa;
 }
 
@@ -18,10 +19,6 @@ button {
   box-shadow: 2.5rem 4rem 50px 0 rgba(0, 0, 0, 0.2),
     0 0 60px 0 rgba(0, 0, 0, 0.05);
   background-color: #fafafa;
-  display: flex;
-  flex-direction: column;
-  width: fit-content;
-  margin: 0 auto;
 }
 
 /* navbar section */
@@ -58,8 +55,13 @@ button {
   text-decoration: none;
   padding-right: 5px;
   margin: 0 3px;
+}
+
+.BOOKS:hover {
   border-right: 1px solid #121212;
-  border-radius: 7px;
+  border-bottom: 1px solid #121212;
+  border-radius: 3px;
+  opacity: 0.7;
 }
 
 .BOOKS:focus {
@@ -136,12 +138,11 @@ button {
 
 .comments-section {
   margin-top: 1rem;
+  display: flex;
+  justify-content: space-between;
 }
 
 .Comments {
-  margin-right: 1rem;
-  padding-right: 1rem;
-  border-right: 1px solid #e8e8e8;
   font-family: "Roboto Slab", serif;
   color: #4386bf;
 }
@@ -313,6 +314,28 @@ label {
 
 @media (max-width: 460px) {
 
-/* code for navbar? */
+  .links {
+    margin: 0;
+    flex-direction: column;
+    align-items: start;
+  }
   
 }
+
+@media (max-width: 405px) {
+
+  .status-section {
+    flex-direction: column;
+    align-items: normal;
+  }
+
+  .percent-section {
+    padding: 0;
+    border: none;
+  }
+
+  .chapter-section {
+    margin: 0;
+  }
+    
+  }
