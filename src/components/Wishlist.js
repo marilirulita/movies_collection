@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { removeWish, addNewwish } from "../redux/wishes/wishes";
 
-const Watchlist = () => {
+const Wishlist = () => {
   const wishes = useSelector((store) => store.reducerWishes);
   const library = useSelector((store) => store.reducerMovies);
   const dispatch = useDispatch();
@@ -131,4 +131,4 @@ const Watchlist = () => {
   );
 };
 
-export default Watchlist;
+export default Wishlist;

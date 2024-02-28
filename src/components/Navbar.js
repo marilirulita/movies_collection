@@ -13,8 +13,8 @@ const Navbar = () => {
           <Link to="/watchedMovies" className="BOOKS">
             Watched Movies
           </Link>
-          <Link to="/watchlist" className="BOOKS">
-            Watchlist
+          <Link to="/wishlist" className="BOOKS">
+            Wishhlist
           </Link>
         </div>
       </div>

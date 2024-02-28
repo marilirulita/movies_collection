@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import Navbar from "./components/Navbar";
 import Library from "./components/Library";
 import WatchedMovies from "./components/WatchedMovies";
-import Watchlist from "./components/Watchlist";
+import Wishlist from "./components/Wishlist";
 import "./App.css";
 
 function App() {
@@ -24,7 +24,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Library />} />
         <Route path="watchedMovies" element={<WatchedMovies />} />
-        <Route path="watchlist" element={<Watchlist />} />
+        <Route path="wishlist" element={<Wishlist />} />
       </Routes>
     </div>
     </div>
