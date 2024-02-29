@@ -27,9 +27,15 @@ const Library = () => {
   // update the object new movie with all data to library (store)
   const submitNewMovie = () => {
     if (state.title !== "" && state.genre !== "") {
-      dispatch(onLibrary(state.title));
+      if (state.title.length > 20) {
+        console.log("too big name")
+      }
+      else {
+        dispatch(onLibrary(state.title));
       dispatch(addNewMovie(state));
       setState(newMovie);
+      }
+      
     }
   };
 

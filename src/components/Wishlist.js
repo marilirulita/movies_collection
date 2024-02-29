@@ -25,11 +25,16 @@ const Wishlist = () => {
   // create a new movie to the wishlist store
   const submitNewWish = () => {
     if (state.title !== "" && state.genre !== "") {
+      if (state.title.length > 20) {
+        console.log("too big")
+      }
+      else {
       const answer = library.filter((movie) => movie.title === state.title);
       answer.length > 0
         ? dispatch(addNewwish(answer[0]))
         : dispatch(addNewwish(state));
       setState(newMovie);
+      }
     }
   };
 

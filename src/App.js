@@ -5,6 +5,7 @@ import Navbar from "./components/Navbar";
 import Library from "./components/Library";
 import WatchedMovies from "./components/WatchedMovies";
 import Wishlist from "./components/Wishlist";
+// eslint-disable-next-line
 import "./App.css";
 
 function App() {

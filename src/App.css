@@ -38,7 +38,7 @@ button {
 .links {
   display: flex;
   margin: 0 10px 0 10px;
-  align-items: end;
+  align-items: flex-end;
 }
 
 .Bookstore-CMS1 {
@@ -107,13 +107,13 @@ button {
   border: solid 1px #e8e8e8;
   background-color: #fff;
   display: flex;
-  align-items: flex-end;
 }
 
 .book-info {
   display: flex;
   flex-direction: column;
   flex: 1;
+  justify-content: space-between;
 }
 
 .Category {
@@ -161,7 +161,7 @@ button {
 .percent-section {
   display: flex;
   align-items: center;
-  padding-right: 1rem;
+  padding: 0 1rem;
   border-right: 1px solid #e8e8e8;
 }
 
@@ -309,6 +309,10 @@ label {
   .Lesson-Panel {
     flex-direction: column;
     align-items: normal;
+  }
+
+  .comments-section {
+    margin: 1rem 0;
   }
 }
 
