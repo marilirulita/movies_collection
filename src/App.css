@@ -1,157 +1,345 @@
 body {
   margin: 0;
-  color: rgb(90 94 98);
-  background-color: rgb(252, 249, 249);
-}
-
-h1,
-h3 {
-  margin: 0;
-}
-
-h2 {
-  margin: 0;
-  padding: 5px;
-}
-
-.app-container {
-  background-color: white;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 0 auto;
-  width: fit-content;
-}
-
-/* Navbar section */
-.nav-container {
-  display: flex;
-  flex-direction: column;
-  padding: 10px;
-  width: -webkit-fill-available;
-}
-
-.nav-container h1 {
-  align-self: center;
-}
-
-.links-menu {
-  display: flex;
-  align-items: center;
-}
-
-.links-menu a {
-  color: #7b7b7b;
-  text-decoration: none;
-  padding: 3px;
-  border: 1px solid #7b7b7b;
-  margin: 0 3px;
-  border-radius: 5px;
-}
-
-.hideMenu {
-  display: none;
-}
-
-.showMenu {
-  display: flex;
+  padding: 0;
 }
 
 button {
-  border: 1px solid #7b7b7b;
-  border-radius: 5px;
-  margin: 0 5px;
+  padding: 0;
+  margin: 0;
 }
 
-button svg {
-  color: #7b7b7b;
-  width: 20px;
-  height: 20px;
+.Bookstore-CMS {
+  display: flex;
+  justify-content: center;
+  background-color: #f5f6fa;
 }
 
-/* Add movies section */
+.panel-bg {
+  border-radius: 4px;
+  box-shadow: 2.5rem 4rem 50px 0 rgba(0, 0, 0, 0.2),
+    0 0 60px 0 rgba(0, 0, 0, 0.05);
+  background-color: #fafafa;
+}
+
+/* navbar section */
+.navbar {
+  padding: 1rem;
+  background-color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar-left {
+  display: flex;
+  align-items: baseline;
+}
+
+.links {
+  display: flex;
+  margin: 0 10px 0 10px;
+  align-items: flex-end;
+}
+
+.Bookstore-CMS1 {
+  margin: 0;
+  font-family: "Montserrat", sans-serif;
+  color: #0290ff;
+}
+
+/* agrgar algo para dividir los links */
+.BOOKS {
+  font-family: "Montserrat", sans-serif;
+  letter-spacing: 1.5px;
+  color: #121212;
+  text-decoration: none;
+  padding-right: 5px;
+  margin: 0 3px;
+}
+
+.BOOKS:hover {
+  border-right: 1px solid #121212;
+  border-bottom: 1px solid #121212;
+  border-radius: 3px;
+  opacity: 0.7;
+}
+
+.BOOKS:focus {
+  opacity: 0.5;
+}
+
+.Oval {
+  padding: 1rem;
+  border: solid 1px #e8e8e8;
+  border-radius: 50%;
+}
+
+.Mask {
+  width: 1rem;
+  height: 1rem;
+  color: #0290ff;
+}
+
+/* main section */
 .movies-container {
   background-color: #dfdada;
   display: flex;
   flex-direction: column;
-  min-width: 350px;
+}
+
+/* books displayed section */
+.books-display {
+  display: flex;
+  flex-direction: column;
 }
 
 .empty-list {
   align-self: center;
+  font-family: "Montserrat", sans-serif;
+  font-size: 2rem;
+  color: #6e6e6e;
 }
 
-.add-new-movie {
-  padding: 5px;
+.Lesson-Panel {
+  margin-bottom: 1rem;
+  padding: 1rem;
+  border-radius: 4px;
+  border: solid 1px #e8e8e8;
+  background-color: #fff;
+  display: flex;
 }
 
-.add-new-movie input {
-  margin-right: 5px;
-  font-size: large;
-  border-radius: 5px;
-  border: none;
-  outline: none;
-}
-
-.add-new-movie select {
-  font-size: large;
-  border-radius: 5px;
-  outline: none;
-}
-
-.add-new-movie button {
-  font-size: large;
-}
-
-/* Display movies section */
-.display-movies {
+.book-info {
   display: flex;
   flex-direction: column;
-  margin: 10px 0;
+  flex: 1;
+  justify-content: space-between;
 }
 
-.movie-container {
-  padding: 5px;
+.Category {
+  opacity: 0.5;
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
+  color: #121212;
+}
+
+/* investigar el tipo de letra roboto slab */
+.Title {
+  font-family: "Roboto Slab", serif;
+  font-size: 1.5rem;
+  font-weight: bold;
+  letter-spacing: -0.2px;
+}
+
+.Author {
+  font-family: "Roboto Slab", serif;;
+  color: #4386bf;
+}
+
+.comments-section {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.Comments {
+  font-family: "Roboto Slab", serif;
+  color: #4386bf;
+}
+
+.Comments:last-child {
+  border: none;
+}
+
+/* parte derecha de display books */
+.status-section {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  border: 1px solid #7b7b7b;
-  margin: 2px;
-  border-radius: 5px;
+  justify-content: space-evenly;
 }
 
-/* watched movies */
-.btnwatched {
-  background-color: rgb(115, 120, 139);
-  color: rgb(209, 222, 248);
-  padding: 5px 3px;
+.percent-section {
+  display: flex;
+  align-items: center;
+  padding: 0 1rem;
+  border-right: 1px solid #e8e8e8;
+}
+
+.circle {
+  padding: 0.5rem;
 }
 
 .btnNotWatched {
-  background-color: rgb(129, 108, 131);
-  color: rgb(248, 210, 248);
-  padding: 5px 3px;
+  width: 5.5rem;
+  height: 5.5rem;
+  border: 5px solid transparent;
+  border-radius: 50%;
+  background-image: linear-gradient(white, white),
+    radial-gradient(circle at top left, #307bbe, #379cf6);
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+  border-image-slice: 1;
 }
 
-.deleteWatch {
+.btnwatched {
+  width: 5.5rem;
+  height: 5.5rem;
+  border: 0;
+  border-radius: 50%;
+  background: linear-gradient(90deg, #307bbe, #379cf6);
+}
+
+.btnwatched span {
+  color: white;
+}
+
+.btnNotWatched span {
+  color: #121212;
+  opacity: 0.6;
+}
+
+.Completed {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.chapter-section {
+  display: flex;
+  flex-direction: column;
+  margin-left: 2rem;
+}
+
+.Current-Chapter,
+.Current-Lesson {
+  opacity: 0.5;
+  font-family: "Roboto Slab", serif;
+}
+
+.Current-Lesson {
+  margin: 0.5rem 0 1.5rem 0;
+}
+
+.Delete-button, .add-book-button {
+  padding: 1rem;
+  border-radius: 3px;
+  background-color: #0290ff;
+  border: none;
+}
+
+.Delete-text, .ADD-BOOK {
+  font-family: "Roboto Slab", serif; 
+  letter-spacing: 0.5px;
+  color: #fff;
+}
+
+/* code for add section */
+.add-book {
+  padding: 1rem;
+  border-top: 2px solid #e8e8e8;
+}
+
+.add-book-title {
+  margin: 0;
+  font-family: "Montserrat", sans-serif;
+  color: #888;
+}
+
+.inputs-elements {
+  margin-top: 1rem;
   display: flex;
   justify-content: space-between;
 }
 
-@media (max-width: 480px) {
-  .add-new-movie {
-    display: flex;
+label {
+  display: flex;
+}
+
+.inputs, select {
+  flex: 1;
+  margin-right: 1rem;
+  padding-left: 0.5rem;
+  border-radius: 4px;
+  border: none;
+  font-size: large;
+  outline: none;
+  background-color: #fff;
+  color: gray;
+}
+
+.inputs::placeholder {
+  font-family: "Montserrat", sans-serif;
+  color: #c4c4c4;
+}
+
+.ADD-BOOK {
+  font-weight: bold;
+}
+
+/* media queri section */
+@media (max-width: 750px) {
+
+  .navbar-left {
     flex-direction: column;
-    align-items: stretch;
   }
 
-  .add-new-movie * {
-    width: 100%;
-    margin: 2px 0;
+  .links {
+    margin: 10px 0;
+  }
+  
+}
+
+@media (max-width: 600px) {
+
+  .inputs-elements {
+    flex-direction: column;
+    margin-top: 0;
   }
 
-  .movie-container {
+  .inputs{
+    margin: 0 0 0.5rem 0;
+    padding: 0.5rem;
+  }
+  
+  select {
+    margin: 0;
+    padding: 0;
+  }
+
+  .Lesson-Panel {
     flex-direction: column;
-    align-items: stretch;
+    align-items: normal;
+  }
+
+  .comments-section {
+    margin: 1rem 0;
   }
 }
+
+@media (max-width: 460px) {
+
+  .links {
+    margin: 0;
+    flex-direction: column;
+    align-items: start;
+  }
+  
+}
+
+@media (max-width: 405px) {
+
+  .status-section {
+    flex-direction: column;
+    align-items: normal;
+  }
+
+  .percent-section {
+    padding: 0;
+    border: none;
+  }
+
+  .chapter-section {
+    margin: 0;
+  }
+    
+  }

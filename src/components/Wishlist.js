@@ -1,11 +1,11 @@
 import { v4 as uuidv4 } from "uuid";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addNewMovie, removeMovie, movieWatched } from "../redux/movies/movies";
-import { notOnLibrary, onLibrary } from "../redux/wishes/wishes";
+import { removeWish, addNewwish } from "../redux/wishes/wishes";
 
-const Library = () => {
-  const library = useSelector((state) => state.reducerMovies);
+const Wishlist = () => {
+  const wishes = useSelector((store) => store.reducerWishes);
+  const library = useSelector((store) => store.reducerMovies);
   const dispatch = useDispatch();
 
   const newMovie = {
@@ -13,58 +13,49 @@ const Library = () => {
     genre: "",
     id: uuidv4(),
     watched: false,
-    onlibrary: true,
+    onlibrary: false,
   };
-
   const [state, setState] = useState(newMovie);
 
   const selectGenre = (select) => {
     setState({ ...state, genre: select.value });
-    /* check this old code ?? */
-    /* setState({ ...state, genre: select.options[select.selectedIndex].value }); */
+   /*  setState({ ...state, genre: select.options[select.selectedIndex].value }); */
   };
 
-  // update the object new movie with all data to library (store)
-  const submitNewMovie = () => {
+  // create a new movie to the wishlist store
+  const submitNewWish = () => {
     if (state.title !== "" && state.genre !== "") {
       if (state.title.length > 20) {
-        console.log("too big name")
+        console.log("too big")
       }
       else {
-        dispatch(onLibrary(state.title));
-      dispatch(addNewMovie(state));
+      const answer = library.filter((movie) => movie.title === state.title);
+      answer.length > 0
+        ? dispatch(addNewwish(answer[0]))
+        : dispatch(addNewwish(state));
       setState(newMovie);
       }
-      
     }
   };
 
-  const deleteMovie = (id, title) => {
-    dispatch(removeMovie(id));
-    dispatch(notOnLibrary(title));
-  };
-
-  // toggle watched atribute in movie element
-  const watchedMovie = (id, toggle) => {
-    const watched = !toggle;
-    dispatch(movieWatched(id, watched));
+  const deleteWish = (id) => {
+    dispatch(removeWish(id));
   };
 
   return (
     <div className="movies-container">
       <div className="add-book">
-        <h2 className="add-book-title">Add New Movie</h2>
+        <h2 className="add-book-title">My Wishlist</h2>
         <div className="inputs-elements">
           <input
             className="inputs"
             type="text"
             placeholder="Add new movie"
             value={state.title}
-            onChange={(e) => {
-              setState({ ...state, title: e.target.value.toUpperCase() });
-            }}
+            onChange={(e) =>
+              setState({ ...state, title: e.target.value.toUpperCase() })
+            }
           />
-          {/* ver si agrego otro input para el author */}
           <label htmlFor="genre" className="inputs">
             <select
               name="genre"
@@ -85,7 +76,7 @@ const Library = () => {
           <button
             type="submit"
             value="add-movie"
-            onClick={submitNewMovie}
+            onClick={submitNewWish}
             className="add-book-button"
           >
             <span className="ADD-BOOK">Add Movie</span>
@@ -93,10 +84,10 @@ const Library = () => {
         </div>
       </div>
       <div className="books-display">
-        {library.length === 0 ? (
+        {wishes.length === 0 ? (
           <h3 className="empty-list">Any movie in your library yet</h3>
         ) : (
-          library.map((movie) => (
+          wishes.map((movie) => (
             <div key={movie.id} className="Lesson-Panel">
               <div className="book-info">
                 <span className="Category">{movie.genre}</span>
@@ -112,32 +103,28 @@ const Library = () => {
                 <div className="percent-section">
                   <div className="circle">
                     <button
-                      className={
-                        (movie.watched && "btnwatched") ||
-                        (!movie.watched && "btnNotWatched")
-                      }
+                      className="btnNotWatched"
                       type="submit"
-                      onClick={() => watchedMovie(movie.id, movie.watched)}
+                      /* agregar funcion para agregar movie en library */
                     >
-                      <span className="Completed">
-                        {(movie.watched && "Watched Movie") ||
-                          (!movie.watched && "Not Watched")}
-                      </span>
+                      <span className="Completed">Add to Library</span>
                     </button>
                   </div>
                 </div>
-
                 <div className="chapter-section">
-                  <span className="Current-Chapter">CURRENT CHAPTER</span>
-                  <span className="Current-Lesson">Chapter 13</span>
+                  <span className="Current-Lesson">
+                    {(movie.onlibrary && "This movie is in your library") ||
+                      (!movie.onlibrary && "Not in your libray yet")}
+                  </span>
+
                   <button
                     id={movie.id}
                     type="submit"
                     value="delete"
-                    onClick={() => deleteMovie(movie.id, movie.title)}
+                    onClick={() => deleteWish(movie.id)}
                     className="Delete-button"
                   >
-                    <span className="Delete-text">DELETE BOOK</span>
+                    <span className="Delete-text">DELETE MOVIE</span>
                   </button>
                 </div>
               </div>
@@ -149,4 +136,4 @@ const Library = () => {
   );
 };
 
-export default Library;
+export default Wishlist;
